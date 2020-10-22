@@ -1,0 +1,11 @@
+
+error [Thu Oct 22 2020 17:41:16 GMT-0500 (GMT-05:00)]  Error: Order must be type of array or instance of a valid sequelize method.
+    at SQLiteQueryGenerator.getQueryOrders (C:\Users\Android\WebstormProjects\dhl_document_generated\node_modules\sequelize\lib\dialects\abstract\query-generator.js:2066:13)
+    at SQLiteQueryGenerator.selectQuery (C:\Users\Android\WebstormProjects\dhl_document_generated\node_modules\sequelize\lib\dialects\abstract\query-generator.js:1357:27)
+    at SQLiteQueryInterface.select (C:\Users\Android\WebstormProjects\dhl_document_generated\node_modules\sequelize\lib\dialects\abstract\query-interface.js:939:27)
+    at Function.findAll (C:\Users\Android\WebstormProjects\dhl_document_generated\node_modules\sequelize\lib\model.js:1753:47)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Function.findOne (C:\Users\Android\WebstormProjects\dhl_document_generated\node_modules\sequelize\lib\model.js:1917:12)
+    at async Function.getAccount (C:\Users\Android\WebstormProjects\dhl_document_generated\models\account.js:6:23)
+    at async Generator.init (C:\Users\Android\WebstormProjects\dhl_document_generated\classes\generator.js:65:24)
+    at async Generator.process (C:\Users\Android\WebstormProjects\dhl_document_generated\classes\generator.js:230:9)

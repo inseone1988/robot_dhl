@@ -1,0 +1,7 @@
+
+info [Thu Oct 22 2020 11:26:12 GMT-0500 (GMT-05:00)]  Initializing puppeteer
+info [Thu Oct 22 2020 11:26:13 GMT-0500 (GMT-05:00)]  Creating browser page tab
+info [Thu Oct 22 2020 11:26:14 GMT-0500 (GMT-05:00)]  Navigating to https://mydhl.express.dhl/mx/es/auth/login.html
+error [Thu Oct 22 2020 11:26:44 GMT-0500 (GMT-05:00)]  TimeoutError: Navigation timeout of 30000 ms exceeded
+    at C:\Users\Android\WebstormProjects\dhl_document_generated\node_modules\puppeteer\lib\cjs\puppeteer\common\LifecycleWatcher.js:106:111
+info [Thu Oct 22 2020 11:26:44 GMT-0500 (GMT-05:00)]  Screenshot : C:\Users\Android\WebstormProjects\dhl_document_generated\screenshots\OFo7kk_1603384004254.png

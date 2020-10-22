@@ -1,0 +1,35 @@
+{
+  "name": "dhl-document-generated",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "expect-puppeteer": "^4.4.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jose": "^2.0.2",
+    "logger": "0.0.1",
+    "mariadb": "^2.5.0",
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.2.5",
+    "node-fetch": "^2.6.1",
+    "numeral": "^2.0.6",
+    "pug": "2.0.0-beta11",
+    "puppeteer": "^5.3.1",
+    "sequelize": "^6.3.5",
+    "short-unique-id": "^3.0.4",
+    "socket.io": "^2.3.0",
+    "sqlite3": "^5.0.0",
+    "token-generator": "^1.0.0",
+    "xlsx": "^0.16.8"
+  },
+  "devDependencies": {
+    "jest": "^26.6.0",
+    "nodemon": "^2.0.6"
+  }
+}

@@ -1,0 +1,18 @@
+
+info [Thu Oct 22 2020 17:52:03 GMT-0500 (GMT-05:00)]  Initializing puppeteer
+info [Thu Oct 22 2020 17:52:06 GMT-0500 (GMT-05:00)]  Creating browser page tab
+info [Thu Oct 22 2020 17:52:06 GMT-0500 (GMT-05:00)]  Navigating to https://mydhl.express.dhl/mx/es/auth/login.html
+info [Thu Oct 22 2020 17:52:12 GMT-0500 (GMT-05:00)]  Closing default browser page
+info [Thu Oct 22 2020 17:52:12 GMT-0500 (GMT-05:00)]  Trying to login
+info [Thu Oct 22 2020 17:52:14 GMT-0500 (GMT-05:00)]  Filling password
+info [Thu Oct 22 2020 17:52:15 GMT-0500 (GMT-05:00)]  Submiting form
+info [Thu Oct 22 2020 17:52:17 GMT-0500 (GMT-05:00)]  Login Exitoso
+info [Thu Oct 22 2020 17:52:17 GMT-0500 (GMT-05:00)]  Navigating to shipment upload
+info [Thu Oct 22 2020 17:52:24 GMT-0500 (GMT-05:00)]  Loading shipment file
+info [Thu Oct 22 2020 17:52:28 GMT-0500 (GMT-05:00)]  Document successfully loaded
+info [Thu Oct 22 2020 17:52:28 GMT-0500 (GMT-05:00)]  Redirecting to manage shipments page
+info [Thu Oct 22 2020 17:52:29 GMT-0500 (GMT-05:00)]  Trying to recover generated tracking file
+info [Thu Oct 22 2020 17:52:35 GMT-0500 (GMT-05:00)]  File located getting info
+info [Thu Oct 22 2020 17:52:35 GMT-0500 (GMT-05:00)]  Generated tracking number 6890100792
+info [Thu Oct 22 2020 17:52:35 GMT-0500 (GMT-05:00)]  Downloading file
+info [Thu Oct 22 2020 17:52:37 GMT-0500 (GMT-05:00)]  Moving to final storage
