@@ -28,17 +28,17 @@ exports.validateCobertura = async (idasociado, zipfrom, zipto) => {
     let cobertura = await fetch(`https://sistema.globalpaq.mx/api/v2/public/cobertura-dhl?cp_origen=${zipfrom}&cp_destino=${zipto}`);
     cobertura = await cobertura.json();
     if (cobertura.data.message === "Cobertura Extendida") {
-        let saldo = await conn.EDB.query(`SELECT local.getSaldoPrepago(${idasociado}) AS saldo`);
+        let saldo = await conn.EDB.query(`SELECT enviosLocal.getSaldoPrepago(${idasociado}) AS saldo`);
         //Prod
-        // let saldo = await conn.EDB.query(`SELECT enviosLocal.getSaldoPrepago(${idasociado}) AS saldo`);
-        let articulo = await conn.EDB.query("SELECT * FROM local.articulo WHERE idarticulo = 1744");
+        // let saldo = await conn.EDB.query(`SELECT enviosenviosLocal.getSaldoPrepago(${idasociado}) AS saldo`);
+        let articulo = await conn.EDB.query("SELECT * FROM enviosLocal.articulo WHERE idarticulo = 1744");
         // prod
-        // let articulo = await  conn.EDB.query("SELECT * FROM local.articulo WHERE idarticulo = 1744");
+        // let articulo = await  conn.EDB.query("SELECT * FROM enviosLocal.articulo WHERE idarticulo = 1744");
         saldo = saldo[0][0];
         articulo = articulo[0][0];
         let enoughFunds = saldo.saldo > Number(articulo.precio_0);
         if (!enoughFunds) return [false, false, "No hay fondos suficientes para generar una guia con zona extendida"];
-        let opRes = await conn.EDB.query(`INSERT INTO local.saldo_prepago(idasociado,idarticulo,tipo,cantidad,monto,paqueteria) VALUES(${idasociado},${articulo.idarticulo},'CARGO',1,${articulo.precio_0},'DHL')`);
+        let opRes = await conn.EDB.query(`INSERT INTO enviosLocal.saldo_prepago(idasociado,idarticulo,tipo,cantidad,monto,paqueteria) VALUES(${idasociado},${articulo.idarticulo},'CARGO',1,${articulo.precio_0},'DHL')`);
         //Prod
         //let opRes = await conn.EDB.query(`INSERT INTO enviosLocal.saldo_prepago(idasociado,idarticulo,tipo,monto,paqueteria) VALUES(${idasociado},${articulo.idarticulo},'CARGO',${articulo.precio_0},'DHL')`);
         return [true, opRes[0], null];
@@ -63,14 +63,14 @@ exports.validateAssurance = async (tipoguia, declaredvalue, idasociado, zona) =>
     let seguro = await resp.json();
     if (seguro.seguro > seguro.disponible) {
         if (zona) {
-            await conn.LOCALDB.query(`UPDATE local.saldo_prepago SET monto = 0 WHERE id = ${zona}`);
+            await conn.LOCALDB.query(`UPDATE enviosLocal.saldo_prepago SET monto = 0 WHERE id = ${zona}`);
             //Prod
             //await conn.EDB.query(`UPDATE enviosLocal.saldo_prepago SET monto = 0 WHERE id = ${zona}`);
             return [false, "Fondos insuficientes para asegurar y generar zona extendida"];
         }
         return [false, "Fondos insuficientes para asegurar"];
     } else {
-        let r = await conn.LOCALDB.query(`INSERT INTO local.saldo_prepago(idasociado,idarticulo,tipo,cantidad,monto,paqueteria) VALUES(${idasociado},'128','CARGO',1,${seguro.seguro},'DHL')`);
+        let r = await conn.LOCALDB.query(`INSERT INTO enviosLocal.saldo_prepago(idasociado,idarticulo,tipo,cantidad,monto,paqueteria) VALUES(${idasociado},'128','CARGO',1,${seguro.seguro},'DHL')`);
         //Prod
         //let r = await conn.EDB.query(`INSERT INTO enviosLocal.saldo_prepago(idasociado,idarticulo,tipo,monto,paqueteria) VALUES(${idasociado},'128','CARGO',${seguro.seguro},'DHL')`);
         let prepagoSeguroId = r[0];
@@ -81,14 +81,14 @@ exports.validateAssurance = async (tipoguia, declaredvalue, idasociado, zona) =>
 exports.rollbackChanges = async (coberturaid, seguroid) => {
     console.log("Rolling back changes");
     if (seguroid || coberturaid) {
-        let cobChQ = `UPDATE local.saldo_prepago SET monto = 0 WHERE id IN(${!isNaN(seguroid) ? !isNaN(coberturaid) ? coberturaid + "," + seguroid : seguroid : coberturaid})`;
+        let cobChQ = `UPDATE enviosLocal.saldo_prepago SET monto = 0 WHERE id IN(${!isNaN(seguroid) ? !isNaN(coberturaid) ? coberturaid + "," + seguroid : seguroid : coberturaid})`;
         await conn.LOCALDB.query(cobChQ);
     }
 }
 
 exports.updateCargo = async (tracking,coberturaid,seguroid)=>{
     if (seguroid || coberturaid) {
-        let cobChQ = `UPDATE local.saldo_prepago SET guia = ${tracking} WHERE id IN(${!isNaN(seguroid) ? !isNaN(coberturaid) ? coberturaid + "," + seguroid : seguroid : coberturaid})`;
+        let cobChQ = `UPDATE enviosLocal.saldo_prepago SET guia = ${tracking} WHERE id IN(${!isNaN(seguroid) ? !isNaN(coberturaid) ? coberturaid + "," + seguroid : seguroid : coberturaid})`;
         await conn.LOCALDB.query(cobChQ);
     }
 }

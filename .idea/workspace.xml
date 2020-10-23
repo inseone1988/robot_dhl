@@ -2,91 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5d5c299-4a9d-4fda-8e5c-455ced9f35e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/generator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cp.db" beforeDir="false" afterPath="$PROJECT_DIR$/cp.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603379950419.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603379950419.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603380164229.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603381047254.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603381047254.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603381582666.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603381582666.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603381682706.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603381682706.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603383261605.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603383261605.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603383967116.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603383967116.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603384664751.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603384664751.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603385133464.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603385133464.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603385172657.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603385172657.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405959369.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405959369.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405959442.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405959442.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405959460.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405959460.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405960097.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603405960097.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603406475902.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603406475902.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603406835302.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603406835302.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407122869.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407122869.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407123064.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407123064.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407123826.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407123826.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407123842.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407123842.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407132358.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603407132358.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603408341669.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requestfiles/1603408341669.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/1yenpm_1603408495351.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/4w5GYz_1603128486877.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/7213KQ_1603132416301.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/7GvRLU_1603381732080.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/BdjjAg_1603212588740.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/G4FMt5_1603131192258.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/JGhuX2_1603405970538.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/JyIu0d_1603211248026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/LFe2Rt_1603377712994.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/LM8jf0_1603134891708.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/NSUQab_1603377898125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/NmlsSs_1603405970715.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/O1wicf_1603378133835.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/OFo7kk_1603384004254.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/PshkRl_1603407148890.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/Rth4rR_1603378544816.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/TbTAlK_1603308727160.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/U4Iy8c_1603134507120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/W5CWOc_1603212806204.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/XAeE1I_1603213003324.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/YA5Iih_1603210146446.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/aGYe5Z_1603130739666.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/bF8Al9_1603211607675.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/cKGtta_1603407178306.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/ddS1u7_1603211457394.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/dhi6sO_1603377895280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/f4kLPI_1603132332404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/fL0CkY_1603407151368.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/i396ZP_1603378335895.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/nByHN8_1603377713092.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/pjnuum_1603209982041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/qwoDJO_1603383313188.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/sYpb8L_1603209430123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/vPFEr7_1603384719297.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/wRE4IF_1603129287151.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/zgHJq5_1603213422065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/queries.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +129,7 @@
       <workItem from="1603205486281" duration="29184000" />
       <workItem from="1603289615415" duration="27520000" />
       <workItem from="1603375733770" duration="21063000" />
-      <workItem from="1603461562835" duration="6409000" />
+      <workItem from="1603461562835" duration="6800000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1603409620929</created>
@@ -222,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603409620930</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="dev-dist">
+      <created>1603489694348</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603489694348</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +153,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init commit" />
+    <MESSAGE value="dev-dist" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev-dist" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603324702487">
@@ -241,10 +165,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="522" y="90" width="609" height="728" key="#xdebugger.evaluate/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603231313972" />
-    <state x="403" y="0" key="CommitChangelistDialog2" timestamp="1603409617297">
+    <state x="403" y="0" key="CommitChangelistDialog2" timestamp="1603489690739">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="403" y="0" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603409617297" />
+    <state x="403" y="0" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603489690739" />
     <state width="1281" height="546" key="DebuggerActiveHint" timestamp="1603381127383">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -349,10 +273,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="221" y="0" key="SettingsEditor/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603123758212" />
-    <state x="392" y="163" key="Vcs.Push.Dialog.v2" timestamp="1603409629813">
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2" timestamp="1603489700554">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603409629813" />
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603489700554" />
     <state x="1600" y="0" width="1344" height="815" maximized="true" key="dock-window-1" timestamp="1603375996228">
       <screen x="1600" y="0" width="1366" height="728" />
     </state>
@@ -361,10 +285,10 @@
       <screen x="1600" y="0" width="1366" height="728" />
     </state>
     <state x="1593" y="0" width="697" height="735" maximized="true" key="dock-window-2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1602883351431" />
-    <state x="0" y="0" width="761" height="860" key="find.popup" timestamp="1602260913374">
+    <state x="311" y="0" width="761" height="860" key="find.popup" timestamp="1603490028584">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="0" y="0" width="761" height="860" key="find.popup/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1602260913374" />
+    <state x="311" y="0" width="761" height="860" key="find.popup/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603490028584" />
     <state x="379" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1602534911816">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
