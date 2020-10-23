@@ -68,10 +68,10 @@ class Generator {
         this.browser = await puppeteer.launch({
             headless: true
         });
-        console.log("creando pestaña de inicio de sesion");
+        console.log("Creando pestaña de inicio de sesion");
         this.log.log('Creating browser page tab');
         this.page = await this.browser.newPage();
-        console.log("Navengando a la pagina de inciio de sesion");
+        console.log("Navengando a la pagina de inicio de sesion");
         this.log.log(`Navigating to ${LOGIN_URL}`);
         await this.page.goto(LOGIN_URL, {
             waitUntil: 'networkidle2'
@@ -84,7 +84,7 @@ class Generator {
     }
 
     async login() {
-        this.log.log(`Truing to login with ${this.account.username} credentials`);
+        this.log.log(`Trying to login with ${this.account.username} credentials`);
         await expect(this.page).toFill('input[type="email"][name="username"]', this.account.username, {
             delay: 25
         });
@@ -111,6 +111,7 @@ class Generator {
         this.log.log('Loading shipment file');
         console.log("Subiendo archivo");
         await expect(this.page).toClick('span', {text: "mapeo disponible"});
+        console.log("existingSchemesSelect");
         await this.page.click('select[aqa-id="existingSchemesSelect"]');
         await this.page.waitForTimeout(500);
         await expect(this.page).toSelect('select[aqa-id="existingSchemesSelect"]', "globalbot");
@@ -125,9 +126,12 @@ class Generator {
         await this.page.waitForSelector("button[aqa-id='processUpload']");
         await expect(this.page).toClick("button",{text : "Subir"});
         // await this.page.click('button[aqa-id="processUpload"]');
-        await expect(this.page).toClick("button",{text: "Proceso de envíos"});
+        await this.page.waitForTimeout(500);
+        await expect(this.page).toClick("button[aqa-id='processButton']");
+        // await expect(this.page).toClick("button[aqa-id='processButton']",{text: "Proceso de envíos"});
         // await this.page.waitForSelector("button[aqa-id='processButton']");
-        await this.page.click('button[aqa-id="processButton"]');
+        await expect(this.page).toClick('button[aqa-id="processButton"]');
+        // await this.page.click('button[aqa-id="processButton"]');
         await this.page.waitForNavigation();
         await this.page.waitForSelector("div[aqa-id='successProcessingResult']");
         this.log.log('Document successfully loaded');
