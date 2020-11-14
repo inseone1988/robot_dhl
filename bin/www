@@ -26,6 +26,7 @@ const credentials = {
 };
 
 const {onGenerateRequest} = require("../controllers/mydhlgenerate");
+
 /**
  * Get port from environment and store in Express.
  */
@@ -52,7 +53,7 @@ Socket.sockets.on("connection",(socket)=>{
         message : e,
         evento : "salir",
         porc : 15
-      })
+      });
     }
   });
 })
@@ -80,7 +81,6 @@ function normalizePort(val) {
     // port number
     return port;
   }
-
   return false;
 }
 

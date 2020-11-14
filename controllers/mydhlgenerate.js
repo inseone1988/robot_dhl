@@ -39,7 +39,9 @@ const csvHeaders = [
     "Address 2 (Ship FROM)",
     "Address 3 (Ship FROM)",
     "Address 2 (Ship TO)",
-    "Address 3 (Ship TO)"
+    "Address 3 (Ship TO)",
+    "Valor del artículo",
+    "Valor del artículo Moneda"
 ];
 const moment = require("moment");
 const path = require("path");
@@ -64,7 +66,7 @@ async function validate(data) {
     if (!await hasDisponibles(data)) return "No cuenta con este tipo de guia disponibles";
     if (Number(data.client_valor_peso) < Number(data.package_peso) && !data.permissions.excedente) return "El peso del paquete sobrepasa el peso amparado de la guia";
     let checkCobertura = await queries.validateCobertura(data.client_id,data.shipper_cp,data.recipient_cp);
-    if (!data.permissions.seguro) return "No cuenta con permiso de seguro";
+    if (!data.permissions.seguro && Number(data.declaredValue) > 0) return "No cuenta con permiso de seguro";
     data.cobertura = checkCobertura;
     if (!checkCobertura[0]) return checkCobertura[2];
     if(Number(data.declaredValue) > 0){
@@ -123,7 +125,7 @@ function sheetData(data) {
         data.recipient_email,
         "14249662",
         data.package_peso,
-        "DOM",
+        data.client_tipoguia === 31 ? "DES" : "DOM",
         data.package_contenido,
         "P",
         "1",
@@ -136,7 +138,9 @@ function sheetData(data) {
         data.shipper_calle2 !== 0 ? data.shipper_calle2 : null,
         data.shipper_calle3 !== 0 ? data.shipper_calle2 : null,
         data.recipient_calle2 !== 0 ? data.recipient_calle2 : null,
-        data.recipient_calle3 !== 0 ? data.recipient_calle3 : null
+        data.recipient_calle3 !== 0 ? data.recipient_calle3 : null,
+        data.declaredValue !== 0 ? data.declaredValue : null,
+        "MXN"
     ]);
     return d;
 }
