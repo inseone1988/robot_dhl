@@ -81,6 +81,8 @@ class Generator {
         this.browser.pages().then(pages => {
             pages[0].close();
         });
+        await this.page.setDefaultNavigationTimeout(0);
+        await this.page.setDefaultTimeout(0);
     }
 
     async login() {

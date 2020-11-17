@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c5d5c299-4a9d-4fda-8e5c-455ced9f35e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/mydhlgenerate.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/mydhlgenerate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/generator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +31,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.12.68" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.4" />
     <property name="last.edited.regexp" value="CUAU#" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -141,7 +140,8 @@
       <workItem from="1603998884163" duration="3141000" />
       <workItem from="1604071684100" duration="2404000" />
       <workItem from="1604940812414" duration="685000" />
-      <workItem from="1605311877671" duration="941000" />
+      <workItem from="1605311877671" duration="1648000" />
+      <workItem from="1605637750246" duration="211000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1603409620929</created>
@@ -171,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603733467663</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed assurance permissions">
+      <created>1605313195906</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605313195906</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +188,8 @@
     <MESSAGE value="Init commit" />
     <MESSAGE value="dev-dist" />
     <MESSAGE value="updated certificate" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated certificate" />
+    <MESSAGE value="fixed assurance permissions" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed assurance permissions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603324702487">
@@ -192,10 +200,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="522" y="90" width="609" height="728" key="#xdebugger.evaluate/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603231313972" />
-    <state x="403" y="0" key="CommitChangelistDialog2" timestamp="1603733465166">
+    <state x="403" y="0" key="CommitChangelistDialog2" timestamp="1605313193414">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="403" y="0" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603733465166" />
+    <state x="403" y="0" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1605313193414" />
     <state width="1281" height="546" key="DebuggerActiveHint" timestamp="1603381127383">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -300,10 +308,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="221" y="0" key="SettingsEditor/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603743556115" />
-    <state x="392" y="163" key="Vcs.Push.Dialog.v2" timestamp="1603733476578">
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2" timestamp="1605313199601">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1603733476578" />
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1605313199601" />
     <state x="617" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603490037567">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
