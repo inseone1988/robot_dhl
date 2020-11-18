@@ -81,8 +81,8 @@ class Generator {
         this.browser.pages().then(pages => {
             pages[0].close();
         });
-        await this.page.setDefaultNavigationTimeout(0);
-        await this.page.setDefaultTimeout(0);
+        await this.page.setDefaultNavigationTimeout(10000);
+        await this.page.setDefaultTimeout(10000);
     }
 
     async login() {
@@ -112,7 +112,9 @@ class Generator {
         });
         this.log.log('Loading shipment file');
         console.log("Subiendo archivo");
-        await expect(this.page).toClick('span', {text: "mapeo disponible"});
+        // await this.page.waitForNavigation({waitUntil : 'networkidle0'});
+        // await this.page.click('input[aqa-id="importType_existing"]');
+        await expect(this.page).toClick('input[aqa-id="importType_existing"]');
         console.log("existingSchemesSelect");
         await this.page.click('select[aqa-id="existingSchemesSelect"]');
         await this.page.waitForTimeout(500);
