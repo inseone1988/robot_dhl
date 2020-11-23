@@ -98,7 +98,8 @@ exports.getCity = async (type,data)=>{
     let col = `${type}_colonia`;
     let cit = `${type}_ciudad`;
     let dts = data[cit] !== 0 && data[cit] !== "" ? data[col] + "-" + data[cit] : data[col];
-    let cities = await conn.EDB.query(`SELECT CONCAT(colonia.colonia,"-",ciudad.ciudad) AS ciudad FROM codigo INNER JOIN colonia ON codigo.idcodigo = colonia.idcodigo INNER JOIN ciudad ON codigo.idciudad = ciudad.idciudad WHERE codigo.codigo = ${data[f]}`);
+    let cities = await conn.EDB.query(`SELECT CONCAT(cdl.colonia,IF(cdl.ciudad = "","","-"),cdl.ciudad) FROM colonias_dhl cdl WHERE cdl.cp = ${data[f]}`);
+    // let cities = await conn.EDB.query(`SELECT CONCAT(colonia.colonia,"-",ciudad.ciudad) AS ciudad FROM codigo INNER JOIN colonia ON codigo.idcodigo = colonia.idcodigo INNER JOIN ciudad ON codigo.idciudad = ciudad.idciudad WHERE codigo.codigo = ${data[f]}`);
     let found = false;
     if(cities[0].length){
         cities[0].forEach(element=>{
