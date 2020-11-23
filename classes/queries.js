@@ -92,3 +92,19 @@ exports.updateCargo = async (tracking,coberturaid,seguroid)=>{
         await conn.LOCALDB.query(cobChQ);
     }
 }
+
+exports.getCity = async (type,data)=>{
+    let f = `${type}_cp`;
+    let col = `${type}_colonia`;
+    let cit = `${type}_ciudad`;
+    let dts = data[cit] !== 0 && data[cit] !== "" ? data[col] + "-" + data[cit] : data[col];
+    let cities = await conn.EDB.query(`SELECT CONCAT(colonia.colonia,"-",ciudad.ciudad) AS ciudad FROM codigo INNER JOIN colonia ON codigo.idcodigo = colonia.idcodigo INNER JOIN ciudad ON codigo.idciudad = ciudad.idciudad WHERE codigo.codigo = ${data[f]}`);
+    let found = false;
+    if(cities[0].length){
+        cities[0].forEach(element=>{
+            if (element.ciudad.includes(dts)) found = true;
+        })
+
+    }
+    return found ? dts : data[col];
+}

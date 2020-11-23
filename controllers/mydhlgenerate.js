@@ -101,7 +101,7 @@ function formatInput(data) {
     })
 }
 
-function sheetData(data) {
+async function sheetData(data) {
     let d = [];
     d.push(csvHeaders);
     d.push([
@@ -109,7 +109,8 @@ function sheetData(data) {
         data.shipper_compania  !== 0 ? data.shipper_compania : null,
         data.shipper_calle !== 0 ? data.shipper_calle : null,
         data.shipper_cp,
-        data.shipper_ciudad !== 0 && data.shipper_ciudad !== "" ? data.shipper_colonia + "-" + data.shipper_ciudad : data.shipper_colonia,
+        await queries.getCity("shipper",data),
+        // data.shipper_ciudad !== 0 && data.shipper_ciudad !== "" ? data.shipper_colonia + "-" + data.shipper_ciudad : data.shipper_colonia,
         "MX",
         data.shipper_email,
         "52",
@@ -118,7 +119,8 @@ function sheetData(data) {
         data.recipient_compania !== 0 ? data.recipient_compania : null,
         data.recipient_calle !== 0 ? data.recipient_calle : null,
         data.recipient_cp,
-        data.recipient_ciudad !== 0 && data.recipient_ciudad !== "" ? data.recipient_colonia + "-" + data.recipient_ciudad : data.recipient_colonia,
+        await queries.getCity("recipient",data),
+        // data.recipient_ciudad !== 0 && data.recipient_ciudad !== "" ? data.recipient_colonia + "-" + data.recipient_ciudad : data.recipient_colonia,
         "MX",
         "52",
         data.recipient_telefono,
@@ -145,11 +147,11 @@ function sheetData(data) {
     return d;
 }
 
-function createFile(data) {
+async function createFile(data) {
     let filename = Date.now();
     let pathName = path.resolve(__dirname,`../requestfiles/${filename}.csv`);
     const wb = XLSX.utils.book_new();
-    let worksheet = XLSX.utils.aoa_to_sheet(sheetData(data));
+    let worksheet = XLSX.utils.aoa_to_sheet(await sheetData(data));
     XLSX.utils.book_append_sheet(wb,worksheet,`${filename}`);
     XLSX.writeFile(wb,pathName);
     return pathName;
@@ -161,7 +163,7 @@ async function onGenerateRequest(data,socket){
     try{
         if(!v){
             formatInput(data);
-            let filename = createFile(data);
+            let filename = await createFile(data);
             console.log(filename);
             await (async () => {
                 let generator = new Generator(data, filename);
