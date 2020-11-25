@@ -1,6 +1,6 @@
 const conn = require("../database/sequelize");
 const XLSX = require("xlsx");
-const { default: ShortUniqueId } = require('short-unique-id');
+const {default: ShortUniqueId} = require('short-unique-id');
 const uid = new ShortUniqueId();
 const fs = require("fs");
 const queries = require("../classes/queries");
@@ -48,14 +48,14 @@ const path = require("path");
 const Generator = require("../classes/generator");
 
 
-async function hasDisponibles (data){
-    return await queries.getDisponibles(data.client_id,data.client_tipoguia,data.client_valor_peso);
+async function hasDisponibles(data) {
+    return await queries.getDisponibles(data.client_id, data.client_tipoguia, data.client_valor_peso);
 }
 
-function trimInput(data){
+function trimInput(data) {
     let i = Object.keys(data);
     for (let j = 0; j < i.length; j++) {
-        if(typeof data[i[j]] === "string") data[i[j]] = data[i[j]].trim();
+        if (typeof data[i[j]] === "string") data[i[j]] = data[i[j]].trim();
     }
 }
 
@@ -65,27 +65,27 @@ async function validate(data) {
     if (data.package_contenido.trim() === "") return "EL contenido del paquete es requerido";
     if (!await hasDisponibles(data)) return "No cuenta con este tipo de guia disponibles";
     if (Number(data.client_valor_peso) < Number(data.package_peso) && !data.permissions.excedente) return "El peso del paquete sobrepasa el peso amparado de la guia";
-    let checkCobertura = await queries.validateCobertura(data.client_id,data.shipper_cp,data.recipient_cp);
+    let checkCobertura = await queries.validateCobertura(data.client_id, data.shipper_cp, data.recipient_cp);
     if (!data.permissions.seguro && Number(data.declaredValue) > 0) return "No cuenta con permiso de seguro";
     data.cobertura = checkCobertura;
     if (!checkCobertura[0]) return checkCobertura[2];
-    if(Number(data.declaredValue) > 0){
-        let checkSeguro = await queries.validateAssurance(data.client_tipoguia,data.declaredValue,data.client_id,checkCobertura[1]);
+    if (Number(data.declaredValue) > 0) {
+        let checkSeguro = await queries.validateAssurance(data.client_tipoguia, data.declaredValue, data.client_id, checkCobertura[1]);
         if (!checkSeguro[0]) return checkSeguro[1];
         data.seguro = checkSeguro[0];
     }
-    data.rollBackChanges = ()=>{
-        queries.rollbackChanges(data.cobertura[1],data.seguro ? data.seguro[1] : false);
+    data.rollBackChanges = () => {
+        queries.rollbackChanges(data.cobertura[1], data.seguro ? data.seguro[1] : false);
     }
     return null;
 }
 
-function sanitize(input){
-    if(isNaN(input) && typeof input !== "object" && typeof input !== "function"){
+function sanitize(input) {
+    if (isNaN(input) && typeof input !== "object" && typeof input !== "function") {
         // console.log(input);
         input = input.toLowerCase();
-        input = input.replace(/[^\w\s]/gi,"");
-        return input.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase();
+        input = input.replace(/[^\w\s]/gi, "");
+        return input.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
     }
     return isNaN(input) ? input : Number(input);
 }
@@ -94,10 +94,17 @@ function sanitize(input){
 function formatInput(data) {
     let indexes = Object.keys(data);
     data.uid = uid();
-    indexes.forEach((value,index)=>{
+    indexes.forEach((value, index) => {
         //console.log(value);
-        if(value !== "shipper_email" && value !== "recipient_email" && value !== "shipper_cp"&& value !== "recipient_cp") data[value] = sanitize(data[value]);
-        if(value === "package_contenido") data[value] = `${data.uid} ` + data[value];
+        if (value !== "shipper_email"
+            && value !== "recipient_email"
+            && value !== "shipper_cp"
+            && value !== "recipient_cp"
+            && value !== "shipper_ciudad"
+            && value !== "shipper_colonia"
+            && value !== "recipient_ciudad"
+            && value !== "recipient_colonia") data[value] = sanitize(data[value]);
+        if (value === "package_contenido") data[value] = `${data.uid} ` + data[value];
     })
 }
 
@@ -106,10 +113,10 @@ async function sheetData(data) {
     d.push(csvHeaders);
     d.push([
         data.shipper_nombre !== 0 ? data.shipper_nombre : null,
-        data.shipper_compania  !== 0 ? data.shipper_compania : null,
+        data.shipper_compania !== 0 ? data.shipper_compania : null,
         data.shipper_calle !== 0 ? data.shipper_calle : null,
         data.shipper_cp,
-        await queries.getCity("shipper",data),
+        await queries.getCity("shipper", data),
         // data.shipper_ciudad !== 0 && data.shipper_ciudad !== "" ? data.shipper_colonia + "-" + data.shipper_ciudad : data.shipper_colonia,
         "MX",
         data.shipper_email,
@@ -119,7 +126,7 @@ async function sheetData(data) {
         data.recipient_compania !== 0 ? data.recipient_compania : null,
         data.recipient_calle !== 0 ? data.recipient_calle : null,
         data.recipient_cp,
-        await queries.getCity("recipient",data),
+        await queries.getCity("recipient", data),
         // data.recipient_ciudad !== 0 && data.recipient_ciudad !== "" ? data.recipient_colonia + "-" + data.recipient_ciudad : data.recipient_colonia,
         "MX",
         "52",
@@ -149,19 +156,19 @@ async function sheetData(data) {
 
 async function createFile(data) {
     let filename = Date.now();
-    let pathName = path.resolve(__dirname,`../requestfiles/${filename}.csv`);
+    let pathName = path.resolve(__dirname, `../requestfiles/${filename}.csv`);
     const wb = XLSX.utils.book_new();
     let worksheet = XLSX.utils.aoa_to_sheet(await sheetData(data));
-    XLSX.utils.book_append_sheet(wb,worksheet,`${filename}`);
-    XLSX.writeFile(wb,pathName);
+    XLSX.utils.book_append_sheet(wb, worksheet, `${filename}`);
+    XLSX.writeFile(wb, pathName);
     return pathName;
 }
 
-async function onGenerateRequest(data,socket){
+async function onGenerateRequest(data, socket) {
     data.permissions = await queries.userPermissions(data.client_id);
     let v = await validate(data);
-    try{
-        if(!v){
+    try {
+        if (!v) {
             formatInput(data);
             let filename = await createFile(data);
             console.log(filename);
@@ -177,9 +184,9 @@ async function onGenerateRequest(data,socket){
                         tracking: opts.tracking
                     });
                 };
-                Generator.p.add(generator).then(r=>{
+                Generator.p.add(generator).then(r => {
                     console.log(r);
-                }).catch(e=>{
+                }).catch(e => {
                     console.log(e);
                     socket.emit("enviarMensaje", {
                         message: e,
@@ -188,11 +195,11 @@ async function onGenerateRequest(data,socket){
                     });
                 });
             })();
-        }else{
+        } else {
             if (data.rollBackChanges) await data.rollBackChanges();
             throw v;
         }
-    }catch (e) {
+    } catch (e) {
         socket.emit("enviarMensaje", {
             message: e,
             porc: 15,
@@ -202,15 +209,25 @@ async function onGenerateRequest(data,socket){
 
 }
 
-function getGuide(req,res,next){
+function getGuide(req, res, next) {
     let trackingid = req.params.trackingid;
-    const filenames = fs.readdirSync(path.resolve(__dirname,"../guides"));
+    const filenames = fs.readdirSync(path.resolve(__dirname, "../guides"));
     for (const index in filenames) {
-        if (filenames[index].includes(trackingid)){
-            res.sendFile(path.resolve(__dirname,`../guides/${filenames[index]}`));
+        if (filenames[index].includes(trackingid)) {
+            res.sendFile(path.resolve(__dirname, `../guides/${filenames[index]}`));
             break;
         }
     }
 }
 
-module.exports = {hasDisponibles,validate,sanitize,formatInput,sheetData,createFile,getGuide,trimInput,onGenerateRequest};
+module.exports = {
+    hasDisponibles,
+    validate,
+    sanitize,
+    formatInput,
+    sheetData,
+    createFile,
+    getGuide,
+    trimInput,
+    onGenerateRequest
+};
