@@ -3,47 +3,17 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  button#test(type="button") Press me
 block scripts
   script(src="/socket.io/socket.io.js")
+  script(src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous")
   script.
-    var testdata = {
-      shipper_nombre: 'Javier Ramirez',
-      shipper_compania: 'Self',
-      shipper_cp: "54435",
-      shipper_estado: 'Mexico|',
-      shipper_ciudad: 'Nicolas Romero#',
-      shipper_colonia: 'veintidos de Febrero',
-      shipper_calle: 'Torré mílitar 13',
-      shipper_telefono: '5575445180',
-      shipper_email: 'jimlombriz1988@gmail.com',
-      recipient_nombre: 'Armando Avelar',
-      recipient_compania: 'Globalpaq',
-      recipient_cp: "09830",
-      recipient_estado: "Mexico",
-      recipient_ciudad: 'Nicolas Romero',
-      recipient_colonia: 'Veintidos de Febrero?',
-      recipient_calle: 'Andador 20',
-      recipient_telefono: '5618375574',
-      recipient_email: 'armando.avelar@globalpaq.com',
-      package_peso: '5',
-      package_alto: '10',
-      package_largo: '10',
-      package_ancho: '10',
-      package_contenido: 'Galletas',
-      client_tipoguia: '32',
-      client_id: '33770',
-      client_hijo: '',
-      client_valor_peso: '5',
-      declaredValue: '50',
-      shipper_calle2: 'Test data',
-      shipper_calle3: 'tests data 1',
-      recipient_calle2: 'tests data 2',
-      recipient_calle3: 'tests data 3'
-    }
+
     var socket = io();
 
-    socket.emit("enviarDatos2",testdata);
-    socket.on("enviarMensaje",(data)=>{
-      console.log(data);
+    $("#test").click(function(){
+      socket.emit("callrequest",{"idasociado":33770,"idasesor" : 247,"phone" : 5586808008});
     })
 
