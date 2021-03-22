@@ -66,7 +66,7 @@ class Generator {
         this.log.log('Initializing puppeteer');
         console.log("Lanzando pupeteer");
         this.browser = await puppeteer.launch({
-            headless: false
+            headless: true
         });
         console.log("Creando pestaña de inicio de sesion");
         this.log.log('Creating browser page tab');

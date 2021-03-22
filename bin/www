@@ -15,15 +15,15 @@ const fs = require("fs");
  * SSL Certificate configuration
  */
 
-// const privateKey = fs.readFileSync('/etc/letsencrypt/live/logiemb.com/privkey.pem', 'utf8');
-// const certificate = fs.readFileSync('/etc/letsencrypt/live/logiemb.com/cert.pem', 'utf8');
-// const ca = fs.readFileSync('/etc/letsencrypt/live/logiemb.com/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/logiemb.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/logiemb.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/logiemb.com/chain.pem', 'utf8');
 
-// const credentials = {
-//   key: privateKey,
-//   cert: certificate,
-//   ca: ca
-// };
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+};
 
 const {onGenerateRequest} = require("../controllers/mydhlgenerate");
 
@@ -31,7 +31,7 @@ const {onGenerateRequest} = require("../controllers/mydhlgenerate");
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5001');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -39,8 +39,8 @@ app.set('port', port);
  */
 
 // var server = http.createServer(app);
-var server = http.createServer(app);
-// var server = https.createServer(credentials,app);
+// var server = https.createServer(app);
+var server = https.createServer(credentials,app);
 
 const Socket = socket.initSocket(server);
 const handler = require("../controllers/callrequesthandler").handler;
@@ -100,8 +100,8 @@ function onError(error) {
   }
 
   var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+      ? 'Pipe ' + port
+      : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -125,7 +125,7 @@ function onError(error) {
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+      ? 'pipe ' + addr
+      : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
