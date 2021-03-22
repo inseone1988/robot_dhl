@@ -66,7 +66,7 @@ class Generator {
         this.log.log('Initializing puppeteer');
         console.log("Lanzando pupeteer");
         this.browser = await puppeteer.launch({
-            headless: true
+            headless: false
         });
         console.log("Creando pestaña de inicio de sesion");
         this.log.log('Creating browser page tab');
@@ -187,6 +187,12 @@ class Generator {
             this.log.log(`Moving to final storage`);
             this.processFile(r[0]);
         }
+        //Force to print labels
+        await expect(this.page).toClick("a",{text : "Imprimir etiquetas"});
+        //await this.page.waitForNavigation();
+        await this.page.waitForTimeout(2000);
+        await expect(this.page).toClick("button[aqa-id='shipment_print_selected_documents_button']");
+        await this.page.waitForTimeout(2000);
     }
 
     processFile(rElement) {
